@@ -1,0 +1,18 @@
+ 1657  docker run -d --name mysql -v mysql-data:/var/lib/mysql --network=two-tier -e MYSQL_PASSWORD=admin -e MYSQL_USER=admin -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=tws_db -p 3306:3306  mysql:5.7
+ 1658  docker run -d --name mysql1 -v mysql-data:/var/lib/mysql --network=two-tier -e MYSQL_PASSWORD=admin -e MYSQL_USER=admin -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=tws_db -p 3306:3306  mysql:5.7
+ 1659  docker ps
+ 1660  history
+ 1661  docker run -d -p 5000:5000 --network=two-tier --name flask-app  -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -e  MYSQL_DB=tws_db -e MYSQL_HOST=mysql flask-app:latest
+ 1662  docker ps
+ 1663  docker ps -a
+ 1664  docker logs 190da6d4c710
+ 1665  history
+ 1666  docker run -d -p 5000:5000 --network=two-tier --name flask-app  -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -e  MYSQL_DB=tws_db -e MYSQL_HOST=mysql1 flask-app:latest
+ 1667  docker ps -a
+ 1668  docker rm 190da6d4c710
+ 1669  docker ps -a
+ 1670  docker rm ec605c2cedd9
+ 1671  docker ps -a
+ 1672  docker run -d -p 5000:5000 --network=two-tier --name flask-app  -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -e  MYSQL_DB=tws_db -e MYSQL_HOST=mysql1 flask-app:latest
+ 1673  docker ps
+ 1674  history
